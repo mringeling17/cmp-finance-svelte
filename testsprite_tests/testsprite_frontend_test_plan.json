@@ -1,0 +1,536 @@
+[
+  {
+    "id": "TC001",
+    "title": "Successful Login with Correct Credentials",
+    "description": "Verify that a user can login successfully using valid email and password, session is persisted, and the user is redirected to the dashboard.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page"
+      },
+      {
+        "type": "action",
+        "description": "Enter a valid email and password"
+      },
+      {
+        "type": "action",
+        "description": "Click the login button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user is redirected to the dashboard page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user session is persisted after page reload"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify protected routes are accessible and non-authenticated routes are restricted"
+      }
+    ]
+  },
+  {
+    "id": "TC002",
+    "title": "Failed Login with Incorrect Credentials",
+    "description": "Verify that login fails and an error message is shown when invalid email or password is provided.",
+    "category": "error handling",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to login page"
+      },
+      {
+        "type": "action",
+        "description": "Enter an invalid email or password"
+      },
+      {
+        "type": "action",
+        "description": "Click the login button"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify error notification is displayed indicating invalid credentials"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify user remains on login page and is not redirected"
+      }
+    ]
+  },
+  {
+    "id": "TC003",
+    "title": "Dashboard KPI Display and Filtering",
+    "description": "Verify dashboard KPIs and charts update correctly when filters (client, agency, channel, date range) are applied and global country selector affects data accordingly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login successfully and navigate to the dashboard page"
+      },
+      {
+        "type": "action",
+        "description": "Apply a filter by a specific client"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify dashboard KPIs and charts update to reflect selected client data"
+      },
+      {
+        "type": "action",
+        "description": "Change country selector to another country"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify currency formatting, KPIs, and charts update accordingly"
+      },
+      {
+        "type": "action",
+        "description": "Apply multiple filters including agency, channel, and date range"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify all KPIs and charts update correctly and reflect combined filters"
+      }
+    ]
+  },
+  {
+    "id": "TC004",
+    "title": "Invoice Management with Filtering, Pagination, and Inline Editing",
+    "description": "Verify invoice management supports filtering by client, agency, channel, pagination navigation, and inline editing of internal invoice numbers.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to invoice management page"
+      },
+      {
+        "type": "action",
+        "description": "Filter invoices by client, agency, and channel separately and in combination"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify invoice list updates to show only matching records"
+      },
+      {
+        "type": "action",
+        "description": "Navigate between multiple pages of paginated results"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify correct invoices are displayed for each page"
+      },
+      {
+        "type": "action",
+        "description": "Click to edit internal invoice number inline"
+      },
+      {
+        "type": "action",
+        "description": "Change internal number with valid input and save"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify internal number is updated and persisted"
+      },
+      {
+        "type": "action",
+        "description": "Attempt inline editing with invalid input (e.g., empty or invalid format)"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation error is shown and changes are not saved"
+      }
+    ]
+  },
+  {
+    "id": "TC005",
+    "title": "Register Payment via Payment Modal and Verify Invoice Status Update",
+    "description": "Verify payment registration through the payment modal updates payment records and refreshes invoice payment status correctly.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Open invoice list and select one invoice with unpaid status"
+      },
+      {
+        "type": "action",
+        "description": "Open payment modal for the selected invoice"
+      },
+      {
+        "type": "action",
+        "description": "Enter valid payment details and submit"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify payment is recorded under payments"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify invoice payment status badge updates to reflect payment"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify invoice list refreshes and shows updated invoice status"
+      }
+    ]
+  },
+  {
+    "id": "TC006",
+    "title": "Payments Page Search and Filter Functionality",
+    "description": "Verify the payments page supports searching payments, filtering by date, and displays linked invoice details in modals.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to payments page"
+      },
+      {
+        "type": "action",
+        "description": "Use search box to find specific payments by payer name or reference"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify search results include only matching payment records"
+      },
+      {
+        "type": "action",
+        "description": "Apply date range filter for payments"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify payments list updates to show payments within selected date range"
+      },
+      {
+        "type": "action",
+        "description": "Select a payment and open payment details modal"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify modal displays linked invoice details accurately"
+      }
+    ]
+  },
+  {
+    "id": "TC007",
+    "title": "Collections KPIs and Filtering",
+    "description": "Verify collections page shows accurate KPIs and charts summarizing payment collections and updates results correctly when filtered by client, agency, and date.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to collections page"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify initial KPIs and charts display accurate aggregated payment collection data"
+      },
+      {
+        "type": "action",
+        "description": "Apply filter for a specific client"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify KPIs and charts update to show collections for the selected client"
+      },
+      {
+        "type": "action",
+        "description": "Apply agency filter and date range filter consecutively"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify KPIs and charts update to reflect combined filters"
+      }
+    ]
+  },
+  {
+    "id": "TC008",
+    "title": "Client Management CRUD Operations and Email Handling",
+    "description": "Verify full lifecycle of client creation, editing, deletion with proper validations and management of associated email addresses and agency assignments.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to client management page"
+      },
+      {
+        "type": "action",
+        "description": "Create a new client with all required fields and multiple valid email addresses"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify client appears in the list with correct details and emails"
+      },
+      {
+        "type": "action",
+        "description": "Edit the client to update details and add/remove emails"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify updates are persisted and reflected in UI"
+      },
+      {
+        "type": "action",
+        "description": "Assign an agency to the client and save changes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify client-agency relationship updates correctly"
+      },
+      {
+        "type": "action",
+        "description": "Try creating or updating client with invalid data (e.g., invalid email format, missing required fields)"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation errors are displayed and changes are not saved"
+      },
+      {
+        "type": "action",
+        "description": "Delete an existing client"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify client is removed from the list and related UI updates"
+      }
+    ]
+  },
+  {
+    "id": "TC009",
+    "title": "Agency Management CRUD and Relationship Handling",
+    "description": "Verify adding, editing, deleting agencies with proper input validation and maintenance of relationships with clients.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to agency management page"
+      },
+      {
+        "type": "action",
+        "description": "Add a new agency with valid input"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify agency appears in the list"
+      },
+      {
+        "type": "action",
+        "description": "Edit agency details and save"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify updated agency details are persisted"
+      },
+      {
+        "type": "action",
+        "description": "Attempt to add or edit agency with missing or invalid data"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation errors are shown and save is blocked"
+      },
+      {
+        "type": "action",
+        "description": "Delete an agency and confirm"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify agency is removed and client relationships are updated accordingly"
+      }
+    ]
+  },
+  {
+    "id": "TC010",
+    "title": "File Management: Upload, Filtering, Sorting, Download, Deletion, and Email Sending",
+    "description": "Verify full file management workflow including drag-and-drop upload with metadata, filtering and sorting file list, downloading files, deleting files, and sending files via email functionality.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to file management page"
+      },
+      {
+        "type": "action",
+        "description": "Upload files using drag-and-drop with correct metadata inputs"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify uploaded files appear in the file list with correct metadata"
+      },
+      {
+        "type": "action",
+        "description": "Apply filters and sorting on file category and date"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify file list updates accordingly"
+      },
+      {
+        "type": "action",
+        "description": "Download a selected file"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify file is downloaded correctly"
+      },
+      {
+        "type": "action",
+        "description": "Delete a file and confirm"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify file is removed from the list"
+      },
+      {
+        "type": "action",
+        "description": "Use email functionality to send a file to a valid email address"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify email is sent successfully and user receives confirmation"
+      },
+      {
+        "type": "action",
+        "description": "Attempt upload of invalid file types or size"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify validation error messages and rejection of files"
+      }
+    ]
+  },
+  {
+    "id": "TC011",
+    "title": "Country Selector Affects Currency Display and Data Filtering",
+    "description": "Verify the global country selector changes currency formatting, exchange rates, and filters UI data across modules with persistence after page reload.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Login and observe default country and currency settings"
+      },
+      {
+        "type": "action",
+        "description": "Change country selector to each supported country (CLP, ARS, USD)"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify currency symbols and exchange rates update accordingly throughout UI"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify data filtering respects selected country context"
+      },
+      {
+        "type": "action",
+        "description": "Reload the application"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify selected country and currency preferences persist"
+      }
+    ]
+  },
+  {
+    "id": "TC012",
+    "title": "Theme Toggle Switch and Persistence",
+    "description": "Verify that users can toggle between light and dark themes and that the selected theme applies immediately and persists across sessions, using system preference detection on first load.",
+    "category": "ui",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Observe initial theme applies based on system preference"
+      },
+      {
+        "type": "action",
+        "description": "Toggle theme switch to change themes"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify UI theme changes instantly"
+      },
+      {
+        "type": "action",
+        "description": "Reload the page or browser"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify selected theme persists after reload"
+      }
+    ]
+  },
+  {
+    "id": "TC013",
+    "title": "Route and Component Loading and Error State Handling",
+    "description": "Verify that all routes and components handle loading states gracefully with spinners or placeholders and show user-friendly error notifications for failures.",
+    "category": "error handling",
+    "priority": "Medium",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Simulate slow network or delayed API response on navigation to dashboard, invoices, payments, clients, and files"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify loading indicators or placeholders display appropriately"
+      },
+      {
+        "type": "action",
+        "description": "Simulate API error or network failure on data fetch"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify error notifications appear with meaningful messages"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify UI remains stable and user can retry actions or reload"
+      }
+    ]
+  },
+  {
+    "id": "TC014",
+    "title": "Invoice Payment Status Badge Updates Correctly",
+    "description": "Verify invoice payment status badges reflect correct status after payment registration and when invoices are filtered or paginated.",
+    "category": "functional",
+    "priority": "High",
+    "steps": [
+      {
+        "type": "action",
+        "description": "View invoices with different payment statuses (unpaid, partially paid, fully paid)"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify badges display correct payment status color and label"
+      },
+      {
+        "type": "action",
+        "description": "Register a new payment for an unpaid invoice"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify invoice badge updates from unpaid to partially or fully paid as applicable"
+      },
+      {
+        "type": "action",
+        "description": "Filter invoices by payment status"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify filtered list only includes invoices with selected payment status"
+      }
+    ]
+  }
+]

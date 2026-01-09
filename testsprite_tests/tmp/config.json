@@ -1,0 +1,18 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:5173",
+  "loginUser": "cyril.ringeling",
+  "loginPassword": "iySfkUtnFEqqDz7y",
+  "executionArgs": {
+    "projectName": "cmp-finance-manager-svelte",
+    "projectPath": "/Users/matiasringelingselman/Documents/Proyectos/CMP/cmp-finance-manager-svelte",
+    "testIds": [],
+    "additionalInstruction": "",
+    "envs": {
+      "API_KEY": "sk-user-XZmk8PDQtJIuZujWBnbUajd1yfIECyovl4sHPXnTtTeiEgvMJika9UAGuS96DZ5sYnKsZwdmUyU2gvlos5ps5GXWe9LfuzDY1BH10kwJ3GFvYbHHo0OOPeBpvPnkFr2s-io"
+    }
+  },
+  "proxy": "http://a22b52c4-e98f-41e8-bc2a-353b8d5c63fd:cSk4dtKnprHE3vbmtto6sxAnhza6pVpH@tun.testsprite.com:8080"
+}

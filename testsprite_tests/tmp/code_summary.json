@@ -1,0 +1,115 @@
+{
+  "tech_stack": [
+    "TypeScript",
+    "SvelteKit",
+    "Svelte 5",
+    "Vite",
+    "Supabase",
+    "TailwindCSS",
+    "Flowbite Svelte",
+    "ECharts",
+    "AG-Grid",
+    "Zod",
+    "xlsx",
+    "date-fns"
+  ],
+  "features": [
+    {
+      "name": "Authentication",
+      "description": "User authentication system with login/logout functionality using Supabase Auth. Includes form validation with Zod and session management.",
+      "files": [
+        "src/routes/login/+page.svelte",
+        "src/lib/stores/auth.ts",
+        "src/lib/services/supabase.ts"
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "description": "Main dashboard page showing financial metrics and analytics after user login.",
+      "files": [
+        "src/routes/dashboard/+page.svelte"
+      ]
+    },
+    {
+      "name": "Client Management",
+      "description": "CRUD operations for managing clients (clientes). Includes fetching, creating, updating, and deleting clients with associated emails.",
+      "files": [
+        "src/routes/clientes/+page.svelte",
+        "src/lib/stores/clientes.ts",
+        "src/lib/types/index.ts"
+      ]
+    },
+    {
+      "name": "Agency Management",
+      "description": "CRUD operations for managing agencies (agencias). Agencies can be linked to clients.",
+      "files": [
+        "src/lib/stores/agencias.ts",
+        "src/lib/types/index.ts"
+      ]
+    },
+    {
+      "name": "Invoice Management",
+      "description": "Invoice (facturacion) management with filtering by client, agency, channel, and date. Includes metrics calculation and chart data preparation for visualizations.",
+      "files": [
+        "src/routes/facturacion/+page.svelte",
+        "src/lib/stores/invoices.ts",
+        "src/lib/types/index.ts"
+      ]
+    },
+    {
+      "name": "Payment Management",
+      "description": "Payment (pagos) management with support for multiple invoice allocations. Includes creating and deleting payments with associated payment details.",
+      "files": [
+        "src/routes/pagos/+page.svelte",
+        "src/lib/stores/payments.ts",
+        "src/lib/types/index.ts"
+      ]
+    },
+    {
+      "name": "Collections (Cobranzas)",
+      "description": "Collections management page for tracking payment collections.",
+      "files": [
+        "src/routes/cobranzas/+page.svelte"
+      ]
+    },
+    {
+      "name": "File Management",
+      "description": "File upload and management system for storing documents related to clients and invoices.",
+      "files": [
+        "src/routes/archivos/+page.svelte",
+        "src/lib/types/index.ts"
+      ]
+    },
+    {
+      "name": "Country Selector",
+      "description": "Multi-country support with country selector component. Filters data based on selected country.",
+      "files": [
+        "src/lib/components/CountrySelector.svelte",
+        "src/lib/stores/country.ts"
+      ]
+    },
+    {
+      "name": "Theme Toggle",
+      "description": "Dark/light theme toggle component for user preference.",
+      "files": [
+        "src/lib/components/ThemeToggle.svelte"
+      ]
+    },
+    {
+      "name": "Currency Formatting",
+      "description": "Utility functions for formatting currency values based on country.",
+      "files": [
+        "src/lib/utils/currency.ts"
+      ]
+    },
+    {
+      "name": "Layout and Navigation",
+      "description": "Main application layout with navigation and routing.",
+      "files": [
+        "src/routes/+layout.svelte",
+        "src/routes/+page.svelte",
+        "src/routes/+error.svelte"
+      ]
+    }
+  ]
+}
